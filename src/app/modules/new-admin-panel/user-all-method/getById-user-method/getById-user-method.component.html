@@ -1,0 +1,243 @@
+<div _ngcontent-ng-c1568440195="" class="container-fluid">
+    <div _ngcontent-ng-c1568440195="" class="row mb-2">
+        <div _ngcontent-ng-c1568440195="" class="col-sm-6">
+            <h1 _ngcontent-ng-c1568440195=""> 
+                User method
+            </h1>
+        </div>
+        <div _ngcontent-ng-c1568440195="" class="col-sm-6">
+            <ol _ngcontent-ng-c1568440195="" class="breadcrumb float-sm-right">
+                <li _ngcontent-ng-c1568440195="" class="breadcrumb-item">
+                    <a _ngcontent-ng-c1568440195="" routerLink="/newAdminPanel/userMethod">User all method</a>
+                </li>
+                <li _ngcontent-ng-c1568440195="" class="breadcrumb-item active">
+                    Details
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="card m-3">
+        <div class="card-body">
+          <div class="row">
+            <!-- id -->
+            <div class="col-6">
+                <i data-feather="user" class="mr-1"></i>
+                    <span class="card-text user-info-title font-weight-bold mb-0">ID</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ user_method.id }}</p>
+            </div>
+            <!-- last_login -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Last login</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ user_method.last_login | date:'short' }}</p>
+            </div>
+            <!-- is_superuser -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Is superuser</span>
+            </div>
+            <div class="col-6">
+                <!-- <p class="card-text mb-0">{{ user_method.is_superuser }}</p> -->
+                <i *ngIf="user_method.is_superuser == true" class="pi pi-check" style="color: green;"></i>
+                <i *ngIf="user_method.is_superuser == false" class="pi pi-times" style="color: red;"></i>
+            </div>
+            <!-- first_name -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">First name</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ user_method.first_name }}</p>
+            </div>
+            <!-- last_name -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Last name</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ user_method.last_name }}</p>
+            </div>
+            <!-- is_staff -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Is staff</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ user_method.is_staff }}</p>
+            </div>
+            <!-- date_joined -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Date joined</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ user_method.date_joined | date:'short' }}</p>
+            </div>
+            <!-- email -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Email</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ user_method.email }}</p>
+            </div>
+            <!-- username -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Username</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ user_method.username }}</p>
+            </div>
+            <!-- phone -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Phone</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ user_method.phone }}</p>
+            </div>
+            <!-- gender -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Gender</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ user_method.gender }}</p>
+            </div>
+            <!-- address -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Address</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ user_method.address }}</p>
+            </div>
+            <!-- is_active -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Is active</span>
+            </div>
+            <div class="col-6">
+                <i *ngIf="user_method.is_active == true" class="pi pi-check" style="color: green;"></i>
+                <i *ngIf="user_method.is_active == false" class="pi pi-times" style="color: red;"></i>
+            </div>
+            <!-- is_app_user -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Is app user</span>
+            </div>
+            <div class="col-6">
+                <i *ngIf="user_method.is_app_user == true" class="pi pi-check" style="color: green;"></i>
+                <i *ngIf="user_method.is_app_user == false" class="pi pi-times" style="color: red;"></i>
+            </div>
+            <!-- date_of_birth -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Date of birth</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ user_method.date_of_birth }}</p>
+            </div>
+            <!-- verification_code -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Verification code</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ user_method.verification_code }}</p>
+            </div>
+            <!-- points -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Points</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ user_method.points }}</p>
+            </div>
+            <!-- password_reset_code -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Password reset code</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ user_method.password_reset_code }}</p>
+            </div>
+            <!-- otp_secret -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Otp secret</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ user_method.otp_secret }}</p>
+            </div>
+            <!-- otp_status -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Otp status</span>
+            </div>
+            <div class="col-6">
+                <!-- <p-badge [value]="user_method.otp_status" severity="success" *ngIf="user_method.otp_status == 'paid'"></p-badge> -->
+                <p-badge [value]="user_method.otp_status" severity="primary" *ngIf="user_method.otp_status == 'otp_not_sent_yet'"></p-badge>
+                <!-- <p-badge [value]="user_method.otp_status" severity="danger" *ngIf="user_method.otp_status == 'failed'"></p-badge> -->
+            </div>
+            <!-- forget_password_otp_status -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Forget password otp status</span>
+            </div>
+            <div class="col-6">
+                <!-- <p-badge [value]="user_method.forget_password_otp_status" severity="success" *ngIf="user_method.otp_status == 'paid'"></p-badge> -->
+                <p-badge [value]="user_method.forget_password_otp_status" severity="primary" *ngIf="user_method.otp_status == 'otp_not_sent_yet'"></p-badge>
+                <!-- <p-badge [value]="user_method.forget_password_otp_status" severity="danger" *ngIf="user_method.otp_status == 'failed'"></p-badge> -->
+            </div>
+            <!-- savings -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Savings</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ user_method.savings }}</p>
+            </div>
+            <!-- promotion_code -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Promotion code</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ user_method.promotion_code }}</p>
+            </div>
+            <!-- referal_code -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Referal code</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ user_method.referal_code }}</p>
+            </div>
+            <!-- client -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Client</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ user_method.client }}</p>
+            </div>
+          </div>
+          <div class="row justify-content-end mt-3">
+            <div class="d-flex flex-wrap">
+                <a a routerLink="/newAdminPanel/userMethod" class="btn btn-outline-secondary ml-1" rippleEffect>
+                  Back
+                </a>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
+

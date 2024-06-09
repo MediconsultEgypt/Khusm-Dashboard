@@ -1,0 +1,107 @@
+
+<section class="content-header">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-12">
+              <div class="card">
+                  <p-toolbar styleClass="gap-2">
+                      <ng-template pTemplate="left">
+                          <!-- Add any toolbar content here -->
+                      </ng-template>
+                      <ng-template pTemplate="right">
+                          <div class="flex">
+                              <!-- PDF Button -->
+                              <button type="button" pButton pRipple  (click)="exportToPdf()"
+                                  class="mr-2" pTooltip="PDF" tooltipPosition="bottom">
+                                  <i class="pi pi-file-pdf"></i>
+                              </button>
+                              <!-- Excel Button -->
+                              <button type="button" pButton pRipple  (click)="exportExcel()"
+                                  class="p-button-success mr-2" pTooltip="XLS" tooltipPosition="bottom">
+                                  <i class="pi pi-file-excel"></i>
+                              </button>
+                          </div>
+                      </ng-template>
+                  </p-toolbar>
+                  <!-- DataTable -->
+                  <p-table #dt [value]="locationData" [rows]="5" [columns]="selectedParentColumns" [paginator]="true"
+                      [globalFilterFields]="['area', 'id', 'governrate']"
+                      [tableStyle]="{ 'min-width': '35rem' }" [(selection)]="selectedProviderBranches"
+                      [rowHover]="true" dataKey="id" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+                      [showCurrentPageReport]="true">
+                      
+                      <ng-template pTemplate="caption">
+                          <div class="d-flex align-items-center flex-column flex-md-row justify-content-center justify-content-md-between">
+                              <h4 class="m-0">Location</h4>
+                              <!-- MultiSelect for Columns -->
+                              <p-multiSelect class="my-1 m-md-0" [options]="cols" [(ngModel)]="selectedParentColumns"
+                                  optionLabel="header" selectedItemsLabel="{0} columns selected"
+                                  [maxSelectedLabels]="0" [style]="{ 'max-width': '200px' }" placeholder="Choose columns">
+                                  <ng-template let-col pTemplate="item">
+                                      <div>{{ col.header }}</div>
+                                  </ng-template>
+                              </p-multiSelect>
+                              <!-- Search Input -->
+                              <span class="p-input-icon-left">
+                                  <i class="pi pi-search"></i>
+                                  <input [style]="{ 'max-width': '192px' }" pInputText type="text"
+                                      (input)="dt.filterGlobal($any($event.target).value, 'contains')" placeholder="search" />
+                              </span>
+                          </div>
+                      </ng-template>
+
+                      <ng-template pTemplate="header" let-columns>
+                          <tr>
+                              <th >Area</th>
+                              <th *ngFor="let col of columns" [pSortableColumn]="col.field != 'lat' ? col.field : false">
+                                  {{ col.header }}
+                                  <p-sortIcon *ngIf="col.field != 'lat'" [field]="col.field"></p-sortIcon>
+                              </th>
+                          </tr>
+                      </ng-template>
+
+                      <ng-template pTemplate="body" let-locationData let-columns="columns">
+                          <tr>
+                              <td>
+                                  <a href="#" class="locationBtn" (click)="toggleRow($event, locationData)">
+                                      <i [ngClass]="expandedRowKeys[locationData.id] ? 'pi pi-fw pi-chevron-circle-down' : 'pi pi-fw pi-chevron-circle-right'"></i>
+                                  </a>
+                              </td>
+                              <td *ngIf="checkSelected(columns, 'id')">{{ locationData.id }}</td>
+                              <td *ngIf="checkSelected(columns, 'governrate')">{{ locationData.governrate }}</td>
+                          </tr>
+                          <tr *ngIf="expandedRowKeys[locationData.id]">
+                              <td colspan="7">
+                                  <p-table [value]="locationData.area">
+                                      <ng-template pTemplate="header">
+                                          <tr>
+                                              <th *ngIf="checkSelected(childColumns, 'name')">Name</th>
+                                              <th>Location</th>
+                                              <th *ngIf="checkSelected(childColumns, 'address')">Address</th>
+                                          </tr>
+                                      </ng-template>
+                                      <ng-template pTemplate="body" let-child>
+                                          <tr>
+                                              <td *ngIf="checkSelected(childColumns, 'name')">{{ child.name }}</td>
+                                              <!-- <td *ngIf="checkSelected(childColumns, 'lat')">{{ child.lat }}</td>
+                                              <td *ngIf="checkSelected(childColumns, 'lang')">{{ child.lang }}</td> -->
+                                              <td>
+                                                <!-- <button (click)="getDirections(child.lat, child.lang)">Get Directions</button> -->
+                                                <a class="locationBtn" (click)="getDirections(child.lat, child.lang)"><i class="pi pi-map-marker"></i></a>
+                                              </td>
+                                              <td *ngIf="checkSelected(childColumns, 'address')">{{ child.address }}</td>
+                                          </tr>
+                                      </ng-template>
+                                  </p-table>
+                              </td>
+                          </tr>
+                      </ng-template>
+
+                  </p-table>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+

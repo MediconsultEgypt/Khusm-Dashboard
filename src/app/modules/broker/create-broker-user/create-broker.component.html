@@ -1,0 +1,61 @@
+<p-toast [breakpoints]="{ '425px': { width: '100%', right: '0', left: '0' } }"></p-toast>
+<section class="content">
+    <div class="container-fluid">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card card-primary m-5">
+                <div class="card-header">
+                  <h3 class="card-title">Create Broker</h3>
+                </div>
+                <!-- /.card-header -->
+                <!-- form start -->
+                <form [formGroup]="createBrokerForm">
+                  <div class="card-body">
+                    <!-- number of users -->
+                    <div class="form-group">
+                        <label for="number_users">Number of users</label>
+                        <input type="text" class="form-control" id="number_users" formControlName="number_users" placeholder="Enter number of users" required>
+                        <span *ngIf="createBrokerForm.get('number_users').hasError('required') && createBrokerForm.get('number_users').touched" class="error-message">
+                            <small class="form-text text-danger">This field is required!</small>
+                        </span>
+                    </div>
+                    <!-- package id -->
+                    <div class="form-group">
+                        <ng-select 
+                            [(ngModel)]="selectedPackage" 
+                            [items]="packages"
+                            bindLabel="title" 
+                            bindValue="id"
+                            [ngModelOptions]="{standalone: true}"
+                            placeholder="Select package"
+                            (ngModelChange)="onSelected($event)"
+                        >
+                            <ng-template ng-option-tmp ng-label-tmp let-item="item">
+                                {{ item.title }}
+                            </ng-template>
+                        </ng-select>
+                    </div>
+                    <!-- broker -->
+                    <div class="form-group">
+                        <label for="broker">Broker</label>
+                        <input type="text" class="form-control" id="broker" formControlName="broker" placeholder="Enter broker" required>
+                        <span *ngIf="createBrokerForm.get('broker').hasError('required') && createBrokerForm.get('broker').touched" class="error-message">
+                            <small class="form-text text-danger">This field is required!</small>
+                        </span>
+                    </div>
+                  </div>
+                  <!-- /.card-body -->
+            
+                  <div class="card-footer">
+                      <div class="row justify-content-between">
+                          <div>
+                              <button type="submit" class="btn btn-primary" [disabled]="isSubmitted || createBrokerForm.invalid" (click)="createBroker()">Create</button>
+                          </div>
+                      </div>
+                  </div>
+                </form>
+            </div>
+        </div>
+      </div>
+    </div>
+</section>

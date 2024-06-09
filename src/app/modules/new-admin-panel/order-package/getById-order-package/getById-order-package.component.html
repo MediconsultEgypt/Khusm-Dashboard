@@ -1,0 +1,197 @@
+<div _ngcontent-ng-c1568440195="" class="container-fluid">
+    <div _ngcontent-ng-c1568440195="" class="row mb-2">
+        <div _ngcontent-ng-c1568440195="" class="col-sm-6">
+            <h1 _ngcontent-ng-c1568440195=""> 
+                Order package 
+            </h1>
+        </div>
+        <div _ngcontent-ng-c1568440195="" class="col-sm-6">
+            <ol _ngcontent-ng-c1568440195="" class="breadcrumb float-sm-right">
+                <li _ngcontent-ng-c1568440195="" class="breadcrumb-item">
+                    <a _ngcontent-ng-c1568440195="" routerLink="/newAdminPanel/order-package">Order package</a>
+                </li>
+                <li _ngcontent-ng-c1568440195="" class="breadcrumb-item active">
+                    Details
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="card m-3">
+        <div class="card-body">
+          <div class="row">
+            <!-- id -->
+            <div class="col-6">
+                <i data-feather="user" class="mr-1"></i>
+                    <span class="card-text user-info-title font-weight-bold mb-0">ID</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ order.id }}</p>
+            </div>
+            <!-- status -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Status</span>
+            </div>
+            <div class="col-6">
+                <p-badge [value]="order.status" severity="success" *ngIf="order.status == 'paid'"></p-badge>
+                <p-badge [value]="order.status" severity="primary" *ngIf="order.status == 'pending'"></p-badge>
+                <p-badge [value]="order.status" severity="danger" *ngIf="order.status == 'failed'"></p-badge>            </div>
+            <!-- payment_method -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Payment method</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ order.payment_method }}</p>
+            </div>
+            <!-- first_name -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">First name</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ order.first_name }}</p>
+            </div>
+            <!-- last_name -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Last name</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ order.last_name | date: 'short' }}</p>
+            </div>
+            <!-- email -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Email</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ order.email }}</p>
+            </div>
+            <!-- country -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Country</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ order.country }}</p>
+            </div>
+            <!-- city -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">City</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ order.city }}</p>
+            </div>
+            <!-- currency -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Currency</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ order.currency }}</p>
+            </div>
+            <!-- phone -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Phone</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ order.phone }}</p>
+            </div>
+            <!-- address -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Address</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ order.address }}</p>
+            </div>
+            <!-- timestamp -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Timestamp</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ order.timestamp | date: 'short' }}</p>
+            </div>
+            <!-- paid_amount -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Paid amount</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ order.paid_amount | currency:'EGP' }}</p>
+            </div>
+            <!-- total_amount_before_discount -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Total amount before discount</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ order.total_amount_before_discount | currency:'EGP' }}</p>
+            </div>
+            <!-- discount_percentage -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Discount percentage</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ order.discount_percentage }}</p>
+            </div>
+            <!-- wallet_mobile_number -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Wallet mobile number</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ order.wallet_mobile_number }}</p>
+            </div>
+            <!-- is_wallet_payment -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Is wallet payment</span>
+            </div>
+            <div class="col-6">
+                <i *ngIf="order.is_wallet_payment == true" class="pi pi-check" style="color: green;"></i>
+                <i *ngIf="order.is_wallet_payment == false" class="pi pi-times" style="color: red;"></i>            
+            </div>
+            <!-- is_free -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Is free</span>
+            </div>
+            <div class="col-6">
+                <i *ngIf="order.is_free == true" class="pi pi-check" style="color: green;"></i>
+                <i *ngIf="order.is_free == false" class="pi pi-times" style="color: red;"></i>            
+            </div>
+            <!-- user -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">User</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ order.user }}</p>
+            </div>
+            <!-- promocode -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Promocode</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ order.promocode }}</p>
+            </div>
+          </div>
+          <div class="row justify-content-end">
+            <div class="d-flex flex-wrap">
+                <a a routerLink="/newAdminPanel/order-package" class="btn btn-outline-secondary ml-1" rippleEffect>
+                  Back
+                </a>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>

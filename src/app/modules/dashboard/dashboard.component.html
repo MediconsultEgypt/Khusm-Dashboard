@@ -1,0 +1,223 @@
+
+<app-main-header></app-main-header>
+<app-main-sidebar></app-main-sidebar>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Dashboard</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <!-- <li class="breadcrumb-item"><a href="#">Home</a></li> -->
+              <li class="breadcrumb-item">Home</li>
+              <li class="breadcrumb-item active">Dashboard</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <!-- installs -->
+            <div class="small-box gradient-green">
+              <div class="inner">
+                <!-- <h3>53<sup style="font-size: 20px">%</sup></h3> -->
+                <h3>{{installs}}</h3>
+
+                <p>Installs</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+              </div>
+              <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <!-- score -->
+            <div class="small-box bg-gradient-white">
+              <div class="inner">
+                <h3>{{score}}</h3>
+
+                <p>Score</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-pie-graph"></i>
+              </div>
+              <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <!-- total provider branches -->
+            <div class="small-box gradient-green"> 
+              <div class="inner">
+                <h3>{{total_prov_branch}}</h3>
+                <p>Provider branches</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-home"></i>
+              </div>
+              <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <!-- total users -->
+            <div class="small-box bg-gradient-white"> 
+              <div class="inner">
+                <h3>{{total_users}}</h3>
+                <p>total users</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-person-add"></i>
+              </div>
+              <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <!-- premium package -->
+            <div class="small-box gradient-green">
+              <div class="inner">
+                <h3>{{premium}}</h3>
+
+                <p>Premium packages</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-bag"></i>
+              </div>
+              <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <!-- regular packages -->
+            <div class="small-box bg-gradient-white">
+              <div class="inner">
+                <h3>{{regular}}</h3>
+                <p>Regular packages</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-bag"></i>
+              </div>
+              <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
+            </div>
+          </div>
+          <!-- ./col -->
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <!-- total packages -->
+            <div class="small-box gradient-green"> 
+              <div class="inner">
+                <h3>{{total}}</h3>
+                <p>total packages</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-bag"></i>
+              </div>
+              <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
+            </div>
+          </div>
+        </div>
+        <!-- /.row -->
+        <!-- Main row -->
+        <div class="row">
+          <!-- Left col -->
+          <section class="col-lg-7 connectedSortable">
+            <!-- Custom tabs (Charts with tabs)-->
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">
+                  <i class="fas fa-chart-pie mr-1"></i>
+                  Total orders
+                </h3>
+                <!-- <div class="card-tools">
+                  <ul class="nav nav-pills ml-auto">
+                    <li class="nav-item">
+                      <a class="nav-link " href="#revenue-chart" data-toggle="tab" (click)="onTabChange('revenue-chart')">Area</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link active" href="#sales-chart" data-toggle="tab" (click)="onTabChange('sales-chart')">Donut</a>
+                    </li>
+                  </ul>
+                </div> -->
+              </div><!-- /.card-header -->
+              <div class="card-body">
+                <div class="tab-content p-0">
+                  <!-- donut total orders -->
+                  <div class="chart tab-pane active" id="sales-chart" style="position: relative; height: 300px;">
+                    <!-- <canvas id="sales-chart-canvas" height="300" style="height: 300px;"></canvas> -->
+                    <!-- <p-chart  #chartCanvas1 type="doughnut" [data]="data" [options]="options"></p-chart> -->
+                    <!-- <canvas id="chartCanvas1"></canvas> -->
+                    <canvas #chartCanvas1></canvas>
+                  </div>
+                  <div class="chart tab-pane " id="revenue-chart"
+                       style="position: relative; height: 300px;">
+                      <!-- <canvas id="revenue-chart-canvas" height="300" style="height: 300px;"></canvas> -->
+                    <!-- <p-chart #chartCanvas2 type="pie" [data]="basicData" [options]="basicOptions" /> -->
+                    <!-- <p-chart type="bar" [data]="basicData" [options]="basicOptions" /> -->
+                     <!-- <canvas id="chartCanvas2"></canvas> -->
+                    <!-- <canvas #chartCanvas2></canvas> -->
+                   </div>
+                </div>
+                <div>
+                  <!-- <canvas id="chartCanvas1"></canvas> -->
+                </div>
+                <div>
+                  <!-- <canvas id="chartCanvas2"></canvas> -->
+                </div>
+                
+              </div><!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+            <div class="row">
+              <!-- <app-total-visits></app-total-visits> -->
+            </div>
+
+
+            <!-- /.card -->
+          </section>
+          <!-- /.Left col -->
+
+          <section class="">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-12">
+           
+                    <app-total-visits></app-total-visits>
+                    <app-total-prov-ratings></app-total-prov-ratings>
+                    <app-total-prov-orders></app-total-prov-orders>
+                    <app-prov-branch-order></app-prov-branch-order>
+             
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- right col -->
+        </div>
+        <!-- /.row (main row) -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <app-control-sidebar></app-control-sidebar>
+  <app-main-footer></app-main-footer>

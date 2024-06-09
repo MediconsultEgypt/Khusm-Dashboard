@@ -1,0 +1,124 @@
+<div _ngcontent-ng-c1568440195="" class="container-fluid">
+    <div _ngcontent-ng-c1568440195="" class="row mb-2">
+        <div _ngcontent-ng-c1568440195="" class="col-sm-6">
+            <h1 _ngcontent-ng-c1568440195=""> 
+                Package promo code 
+            </h1>
+        </div>
+        <div _ngcontent-ng-c1568440195="" class="col-sm-6">
+            <ol _ngcontent-ng-c1568440195="" class="breadcrumb float-sm-right">
+                <li _ngcontent-ng-c1568440195="" class="breadcrumb-item">
+                    <a _ngcontent-ng-c1568440195="" routerLink="/newAdminPanel/package-promo-code">Package promo code</a>
+                </li>
+                <li _ngcontent-ng-c1568440195="" class="breadcrumb-item active">
+                    Details
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="card m-3">
+        <div class="card-body">
+          <div class="row">
+            <!-- id -->
+            <div class="col-6">
+                <i data-feather="user" class="mr-1"></i>
+                    <span class="card-text user-info-title font-weight-bold mb-0">ID</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ promo_code.id }}</p>
+            </div>
+            <!-- name -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Name</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ promo_code.name }}</p>
+            </div>
+            <!-- code -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Code</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ promo_code.code }}</p>
+            </div>
+            <!-- valid_from -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Valid from</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ promo_code.valid_from | date: 'short' }}</p>
+            </div>
+            <!-- valid_to -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">valid_to</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ promo_code.valid_to | date: 'short' }}</p>
+            </div>
+            <!-- usage_limit -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Usage limit</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ promo_code.usage_limit }}</p>
+            </div>
+            <!-- used_times -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Used times</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ promo_code.used_times }}</p>
+            </div>
+            <!-- active -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Active</span>
+            </div>
+            <div class="col-6">
+                <i *ngIf="promo_code.active == true" class="pi pi-check" style="color: green;"></i>
+                <i *ngIf="promo_code.active == false" class="pi pi-times" style="color: red;"></i>
+            </div>
+            <!-- percent_discount -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Percent discount</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ promo_code.percent_discount }}</p>
+            </div>
+            <!-- generate_more -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Generate more</span>
+            </div>
+            <div class="col-6">
+                <i *ngIf="promo_code.generate_more == true" class="pi pi-check" style="color: green;"></i>
+                <i *ngIf="promo_code.generate_more == false" class="pi pi-times" style="color: red;"></i>
+            </div>
+            <!-- number_of_promocodes -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Number of promocodes</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ promo_code.number_of_promocodes }}</p>
+            </div>
+          </div>
+          <div class="row justify-content-end">
+            <div class="d-flex flex-wrap">
+                <a a routerLink="/newAdminPanel/package-promo-code" class="btn btn-outline-secondary ml-1" rippleEffect>
+                  Back
+                </a>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>

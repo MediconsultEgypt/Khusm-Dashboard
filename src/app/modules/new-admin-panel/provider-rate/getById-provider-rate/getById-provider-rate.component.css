@@ -1,0 +1,5 @@
+@import '~primeicons/primeicons.css';
+
+svg.p-icon.p-rating-icon.p-rating-icon-active path{
+    color: #ffc107;
+}

@@ -1,0 +1,7 @@
+@import '~primeicons/primeicons.css';
+
+:host ::ng-deep{
+    svg.p-icon.p-rating-icon-active path{
+        color: #ffc107;
+    }
+}

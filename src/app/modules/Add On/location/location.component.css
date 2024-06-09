@@ -1,0 +1,7 @@
+@import "primeicons/primeicons.css";
+
+.locationBtn :hover, .locationBtn{
+    cursor: pointer;
+    color: var(--primar-color);
+    background-color: transparent;
+}

@@ -1,0 +1,8 @@
+.installs {
+    background-color: var(--primar-color);
+}
+
+.gradient-green {
+    background: #2caca4 linear-gradient(180deg, #3ce5db, #27958e) repeat-x !important;
+    color: white;
+}

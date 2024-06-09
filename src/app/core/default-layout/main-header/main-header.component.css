@@ -1,0 +1,25 @@
+@import "primeicons/primeicons.css";
+
+.avatar-wrapper {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .active-indicator {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 25px;
+    width: 10px;
+    height: 10px;
+    border: 2px solid white;
+    border-radius: 50%;
+  }
+
+  .logoutIcon {
+    margin-left: 3rem;
+    font-size: small;
+    font-weight: 700;
+    color: var(--primar-color);
+  }
+  

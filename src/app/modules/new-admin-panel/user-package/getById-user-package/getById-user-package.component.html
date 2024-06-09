@@ -1,0 +1,91 @@
+<div _ngcontent-ng-c1568440195="" class="container-fluid">
+    <div _ngcontent-ng-c1568440195="" class="row mb-2">
+        <div _ngcontent-ng-c1568440195="" class="col-sm-6">
+            <h1 _ngcontent-ng-c1568440195=""> 
+                User package 
+            </h1>
+        </div>
+        <div _ngcontent-ng-c1568440195="" class="col-sm-6">
+            <ol _ngcontent-ng-c1568440195="" class="breadcrumb float-sm-right">
+                <li _ngcontent-ng-c1568440195="" class="breadcrumb-item">
+                    <a _ngcontent-ng-c1568440195="" routerLink="/newAdminPanel/user-package">User package</a>
+                </li>
+                <li _ngcontent-ng-c1568440195="" class="breadcrumb-item active">
+                    Details
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="card m-3">
+        <div class="card-body">
+          <div class="row">
+            <!-- id -->
+            <div class="col-6">
+                <i data-feather="user" class="mr-1"></i>
+                    <span class="card-text user-info-title font-weight-bold mb-0">ID</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ package.id }}</p>
+            </div>
+            <!-- created_at -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Created at</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ package.created_at | date:'short' }}</p>
+            </div>
+            <!-- start_date -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Start date</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ package.start_date | date:'short' }}</p>
+            </div>
+            <!-- end_date -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">End date</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ package.end_date | date:'short' }}</p>
+            </div>
+            <!-- has_package -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Has package</span>
+            </div>
+            <div class="col-6">
+                <i *ngIf="package.has_package == true" class="pi pi-check" style="color: green;"></i>
+                <i *ngIf="package.has_package == false" class="pi pi-times" style="color: red;"></i>            
+            </div>
+            <!-- user -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">User</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ package.user }}</p>
+            </div>
+            <!-- package -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Package</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ package.package }}</p>
+            </div>
+          </div>
+          <div class="row justify-content-end">
+            <div class="d-flex flex-wrap">
+                <a a routerLink="/newAdminPanel/user-package" class="btn btn-outline-secondary ml-1" rippleEffect>
+                  Back
+                </a>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>

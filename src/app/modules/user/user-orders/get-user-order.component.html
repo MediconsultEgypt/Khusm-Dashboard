@@ -1,0 +1,72 @@
+<p-toast [breakpoints]="{ '425px': { width: '100%', right: '0', left: '0' } }"></p-toast>
+<section class="content-header">
+    <div _ngcontent-ng-c1568440195="" class="container-fluid">
+        <div _ngcontent-ng-c1568440195="" class="row mb-2">
+            <div _ngcontent-ng-c1568440195="" class="col-sm-6">
+                <h2 _ngcontent-ng-c1568440195=""> 
+                    User order 
+                </h2>
+            </div>
+            <div _ngcontent-ng-c1568440195="" class="col-sm-6">
+                <ol _ngcontent-ng-c1568440195="" class="breadcrumb float-sm-right">
+                    <li _ngcontent-ng-c1568440195="" class="breadcrumb-item">
+                        <a _ngcontent-ng-c1568440195="" routerLink="/dashboard">Home</a>
+                    </li>
+                    <li _ngcontent-ng-c1568440195="" class="breadcrumb-item active">
+                        users
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="container">
+    <div class="card m-3">
+        <div class="card-body">
+          <div class="row">
+            <form [formGroup]="userIdForm" style="display: contents;">
+                <!-- choose user input -->
+                <div class="col-12 col-md-6 mb-3">
+                    <input type="text" class="form-control" id="user_id" formControlName="user_id" placeholder="Enter user id" required>
+                </div>
+                <div class="col-12 col-md-6 mb-3">
+                    <button type="submit" class="btn btn-primary" (click)="getOrder()">Get orders</button>
+                </div>
+            </form>
+            <!-- total_before_discount -->
+            <div class="col-10 col-md-6">
+                <i data-feather="user" class="mr-1"></i>
+                    <span class="card-text user-info-title font-weight-bold mb-0">Total before discount</span>
+            </div>
+            <div class="col-2 col-md-6">
+                <p class="card-text mb-0" *ngIf="is_found">{{ data.total_before_discount | currency:'EGP' }}</p>
+                <!-- <p class="card-text mb-0">0</p> -->
+            </div>
+            <!-- total_after_discount -->
+            <div class="col-10 col-md-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Total after discount</span>
+            </div>
+            <div class="col-2 col-md-6">
+                <p class="card-text mb-0" *ngIf="is_found">{{ data.total_after_discount | currency:'EGP' }}</p>
+            </div>
+            <!-- total_discount -->
+            <div class="col-10 col-md-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Total discount</span>
+            </div>
+            <div class="col-2 col-md-6">
+                <p class="card-text mb-0" *ngIf="is_found">{{ data.total_discount | currency:'EGP' }}</p>
+            </div>
+            <!-- total_khusm_discount -->
+            <div class="col-10 col-md-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Total khusm discount</span>
+            </div>
+            <div class="col-2 col-md-6">
+                <p class="card-text mb-0" *ngIf="is_found">{{ data.total_khusm_discount | currency:'EGP' }}</p>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>

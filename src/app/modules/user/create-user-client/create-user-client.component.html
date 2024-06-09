@@ -1,0 +1,77 @@
+<p-toast [breakpoints]="{ '425px': { width: '100%', right: '0', left: '0' } }"></p-toast>
+<section class="content">
+    <div class="container-fluid">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card card-primary m-5">
+                <div class="card-header">
+                  <h3 class="card-title">Create client user</h3>
+                </div>
+                <!-- /.card-header -->
+                <!-- form start -->
+                <form [formGroup]="createClientForm">
+                  <div class="card-body">
+                    <!-- client name -->
+                    <div class="form-group">
+                        <label for="client_name">Client name</label>
+                        <input type="text" class="form-control" id="client_name" formControlName="client_name" placeholder="Enter client name" required>
+                        <span *ngIf="createClientForm.get('client_name').hasError('required') && createClientForm.get('client_name').touched" class="error-message">
+                            <small class="form-text text-danger">This field is required!</small>
+                        </span>
+                    </div>
+                    <!-- package id -->
+                    <div class="form-group">
+                        <ng-select 
+                            [(ngModel)]="selectedPackage" 
+                            [items]="packages"
+                            bindLabel="title" 
+                            bindValue="id"
+                            [ngModelOptions]="{standalone: true}"
+                            placeholder="Select package"
+                            (ngModelChange)="onSelected($event)"
+                        >
+                            <ng-template ng-option-tmp ng-label-tmp let-item="item">
+                                {{ item.title }}
+                            </ng-template>
+                        </ng-select>
+                    </div>
+                    <!-- file -->
+                    <div class="form-group">
+                      <label for="exampleInputFile">File upload</label>
+                      <div class="input-group">
+                        <div class="custom-file">
+                          <input type="file" class="file-input" id="exampleInputFile" (change)="onFileSelected($event)" #fileUpload>
+                          <label class="custom-file-label" for="exampleInputFile">{{fileName}}</label>
+                        </div>
+                        <!-- <div class="input-group-append">
+                          <span class="input-group-text">Upload</span>
+                        </div> -->
+                      </div>
+                    </div>
+                    <!-- sheet name -->
+                    <!-- <div class="form-group">
+                        <label for="sheet_name">Sheet name</label>
+                        <input type="text" class="form-control" id="sheet_name" formControlName="sheet_name" placeholder="Enter sheet name" required>
+                        <span *ngIf="createClientForm.get('sheet_name').hasError('required') && createClientForm.get('sheet_name').touched" class="error-message">
+                            <small class="form-text text-danger">This field is required!</small>
+                        </span>
+                    </div> -->
+                  </div>
+                  <!-- /.card-body -->
+            
+                  <div class="card-footer">
+                      <div class="row justify-content-between">
+                          <div>
+                              <button type="submit" class="btn btn-primary" [disabled]="isSubmitted || createClientForm.invalid" (click)="createClient()">Create</button>
+                          </div>
+                          <div>
+                            <a class="btn btn-primary" download="client_users" target="_blank" href="assets/Excel-sheets/client_users.xlsx">Download template</a>
+                        </div>
+                      </div>
+                  </div>
+                </form>
+            </div>
+        </div>
+      </div>
+    </div>
+</section>

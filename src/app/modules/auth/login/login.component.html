@@ -1,0 +1,120 @@
+<p-toast [breakpoints]="{ '425px': { width: '100%', right: '0', left: '0' } }"></p-toast>
+<!-- admin -->
+<div class="hold-transition login-page" *ngIf="isAdminLogin">
+<div class="login-box">
+  <div class="card">
+    <div class="card-body login-card-body">
+      <div class="row">
+        <div class="col-12">
+          <a routerLink="/dashboard">
+            <img class="mb-3" src="assets/images/logo.svg" style="width: 10rem;">
+          </a>
+        </div>
+        <div class="col-12">
+          <h3 class="login-box-msg">Sign in to start your session</h3>
+        </div>
+      </div>
+      <form [formGroup]="AdminLoginForm" (ngSubmit)="loginAdmin()">
+        <!-- username -->
+        <div class="mb-3">
+          <div class="">
+            <label for="username" class="mb-1">Username</label>
+            <input type="text" formControlName="username" class="form-control" placeholder="username">
+
+          </div>
+          <div *ngIf="AdminLoginForm.get('username').hasError('required') && AdminLoginForm.get('username').touched" class="text-danger">
+            <small>
+              Username is required.
+            </small>
+          </div>
+
+        </div>
+        <div class="mb-3">
+          <label for="password" class="mb-1">Password</label>
+          <p-password class="w-100" formControlName="password" [toggleMask]="true" [feedback]="false" placeholder="Password"></p-password>
+          <div *ngIf="AdminLoginForm.get('password').hasError('required') && AdminLoginForm.get('password').touched" class="text-danger">
+            <small>
+              Password is required.
+            </small>
+          </div>
+          <div *ngIf="AdminLoginForm.get('password').hasError('minLength') && AdminLoginForm.get('password').touched" class="text-danger">
+            <small>
+              Password should be at least 6 characters or numbers.
+            </small>
+          </div>
+        </div>
+        <div class="row">
+
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary btn-block" [disabled]="!AdminLoginForm.valid || isSubmitted">Sign In</button>
+          </div>
+          <!-- /.col -->
+        </div>
+      </form>
+
+
+      <p class="mt-2 mb-1">
+        <a class="text-center" (click)="moveToForgetPassword()">I forgot my password</a>
+      </p>
+      <!-- <p class="mb-0">
+        <a (click)="goToUserForm()" class="text-center">Login as a user</a>
+      </p> -->
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- user -->
+<!-- <div class="hold-transition login-page" *ngIf="isUserLogin">
+  <div class="login-box">
+    <div class="card">
+      <div class="card-body login-card-body">
+        <div class="row">
+          <div class="col-12">
+            <a href="/dashboard">
+              <img class="mb-3" src="assets/images/logo.svg" style="width: 10rem;">
+            </a>
+          </div>
+          <div class="col-12">
+            <h3 class="login-box-msg">Sign in to start your session</h3>
+          </div>
+        </div>
+  
+        <form [formGroup]="userLoginForm" (ngSubmit)="login()">
+          <div class="mb-3">
+            <div class="">
+              <label for="phone" class="mb-1">Phone</label>
+              <app-phone-validation (phoneChange)="onPhoneChanged($event)"></app-phone-validation>
+            </div>
+          </div>
+          <div class="mb-3">
+          <label for="password" class="mb-1">Password</label>
+            <p-password class="w-100" formControlName="password" [toggleMask]="true" [feedback]="false" placeholder="Password"></p-password>
+            <div *ngIf="userLoginForm.get('password').hasError('required') && userLoginForm.get('password').touched" class="text-danger">
+              <small>
+                Password is required.
+              </small>
+            </div>
+            <div *ngIf="userLoginForm.get('password').hasError('minLength') && userLoginForm.get('password').touched" class="text-danger">
+              <small>
+                Password should be at least 6 characters or numbers.
+              </small>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <button type="submit" class="btn btn-primary btn-block" [disabled]="!userLoginForm.valid || isSubmitted">Sign In</button>
+            </div>
+          </div>
+        </form>
+  
+        <p class="mt-2 mb-1">
+          <a class="text-center" (click)="moveToForgetPassword()">I forgot my password</a>
+        </p>
+        <p class="mb-0">
+          <a href="/register" class="text-center">Register a new membership</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div> -->

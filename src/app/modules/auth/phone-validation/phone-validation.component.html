@@ -1,0 +1,34 @@
+<form [formGroup]="phoneForm">
+    <input
+      type="text"
+      formControlName="phone"
+      class="form-control"
+      placeholder="Phone"
+      (input)="emitPhoneValue()"
+    />
+    <div *ngIf="phoneForm.get('phone').hasError('required') && phoneForm.get('phone').touched" class="text-danger">
+        <small>
+          Phone is required.
+        </small>
+      </div>
+      <div *ngIf="phoneForm.get('phone').hasError('invalidPhone') && phoneForm.get('phone').touched" class="text-danger">
+        <small>
+          Phone number should only contain numeric digits.
+        </small>
+      </div>
+      <div *ngIf="phoneForm.get('phone').hasError('pattern') && phoneForm.get('phone').touched" class="text-danger">
+        <small>
+          Phone number should only start with '01'.
+        </small>
+      </div>
+      <div *ngIf="phoneForm.get('phone').hasError('minlength') && phoneForm.get('phone').touched" class="text-danger">
+        <small>
+          Phone number should be 11 digits long.
+        </small>
+      </div>
+      <div *ngIf="phoneForm.get('phone').hasError('maxlength') && phoneForm.get('phone').touched" class="text-danger">
+        <small>
+          Phone number should be 11 digits long.
+        </small>
+      </div>
+  </form>

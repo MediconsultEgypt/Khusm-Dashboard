@@ -1,0 +1,115 @@
+<div _ngcontent-ng-c1568440195="" class="container-fluid">
+    <div _ngcontent-ng-c1568440195="" class="row mb-2">
+        <div _ngcontent-ng-c1568440195="" class="col-sm-6">
+            <h1 _ngcontent-ng-c1568440195=""> 
+                Provider admin 
+            </h1>
+        </div>
+        <div _ngcontent-ng-c1568440195="" class="col-sm-6">
+            <ol _ngcontent-ng-c1568440195="" class="breadcrumb float-sm-right">
+                <li _ngcontent-ng-c1568440195="" class="breadcrumb-item">
+                    <a _ngcontent-ng-c1568440195="" routerLink="/newAdminPanel/provider-admin">Provider admin</a>
+                </li>
+                <li _ngcontent-ng-c1568440195="" class="breadcrumb-item active">
+                    Details
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="card m-3">
+        <div class="card-body">
+          <div class="row">
+            <!-- id -->
+            <div class="col-6">
+                <i data-feather="user" class="mr-1"></i>
+                    <span class="card-text user-info-title font-weight-bold mb-0">ID</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ provider_admin.id }}</p>
+            </div>
+            <!-- name -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Name</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ provider_admin.name }}</p>
+            </div>
+            <!-- description -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Description</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ provider_admin.description }}</p>
+            </div>
+            <!-- phone -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Phone</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ provider_admin.phone }}</p>
+            </div>
+            <!-- image -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Image</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ provider_admin.image }}</p>
+            </div>
+            <!-- is_best_deal -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Is best deal</span>
+            </div>
+            <div class="col-6">
+                <i *ngIf="provider_admin.is_best_deal == true" class="pi pi-check" style="color: green;"></i>
+                <i *ngIf="provider_admin.is_best_deal == false" class="pi pi-times" style="color: red;"></i>
+            </div>
+            <!-- best_deal_order -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Best deal order</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ provider_admin.best_deal_order }}</p>
+            </div>
+            <!-- khusm_code -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Khusm code</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ provider_admin.khusm_code }}</p>
+            </div>
+            <!-- due_date -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Due date</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ provider_admin.due_date }}</p>
+            </div>
+            <!-- provider_category -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Provider category</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ provider_admin.provider_category }}</p>
+            </div>
+          </div>
+          <div class="row justify-content-end">
+            <div class="d-flex flex-wrap">
+                <a a routerLink="/newAdminPanel/provider-admin" class="btn btn-outline-secondary ml-1" rippleEffect>
+                  Back
+                </a>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>

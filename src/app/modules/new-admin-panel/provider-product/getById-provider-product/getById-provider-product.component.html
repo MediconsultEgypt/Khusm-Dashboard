@@ -1,0 +1,83 @@
+<div _ngcontent-ng-c1568440195="" class="container-fluid">
+    <div _ngcontent-ng-c1568440195="" class="row mb-2">
+        <div _ngcontent-ng-c1568440195="" class="col-sm-6">
+            <h1 _ngcontent-ng-c1568440195=""> 
+                Provider product 
+            </h1>
+        </div>
+        <div _ngcontent-ng-c1568440195="" class="col-sm-6">
+            <ol _ngcontent-ng-c1568440195="" class="breadcrumb float-sm-right">
+                <li _ngcontent-ng-c1568440195="" class="breadcrumb-item">
+                    <a _ngcontent-ng-c1568440195="" routerLink="/newAdminPanel/provider-product">Provider product</a>
+                </li>
+                <li _ngcontent-ng-c1568440195="" class="breadcrumb-item active">
+                    Details
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="card m-3">
+        <div class="card-body">
+          <div class="row">
+            <!-- id -->
+            <div class="col-6">
+                <i data-feather="user" class="mr-1"></i>
+                    <span class="card-text user-info-title font-weight-bold mb-0">ID</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ product.id }}</p>
+            </div>
+            <!-- discount -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Discount</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ product.discount | currency:'EGP' }}</p>
+            </div>
+            <!-- for_package -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">For package</span>
+            </div>
+            <div class="col-6">
+                <i *ngIf="product.for_package == true" class="pi pi-check" style="color: green;"></i>
+                <i *ngIf="product.for_package == false" class="pi pi-times" style="color: red;"></i>
+            </div>
+            <!-- khusm_discount -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">khusm discount</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ product.khusm_discount }}</p>
+            </div>
+            <!-- provider -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Provider</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ product.provider }}</p>
+            </div>
+            <!-- category -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Category</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ product.category }}</p>
+            </div>
+          </div>
+          <div class="row justify-content-end">
+            <div class="d-flex flex-wrap">
+                <a a routerLink="/newAdminPanel/provider-product" class="btn btn-outline-secondary ml-1" rippleEffect>
+                  Back
+                </a>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>

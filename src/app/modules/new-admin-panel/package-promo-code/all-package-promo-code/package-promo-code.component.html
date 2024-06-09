@@ -1,0 +1,181 @@
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                  <p-toolbar styleClass="gap-2">
+                    <ng-template pTemplate="left">
+                      
+                    </ng-template>
+                
+                    <ng-template pTemplate="right">
+                      <div class="flex">
+                        <!-- ! PDF -->
+                        <button
+                          type="button"
+                          pButton
+                          pRipple
+                          
+                          (click)="exportToPdf()"
+                          class="mr-2"
+                          pTooltip="PDF"
+                          tooltipPosition="bottom"
+                        ><i class="pi pi-file-pdf"></i></button>
+                        <!-- ! Excel -->
+                        <button
+                          type="button"
+                          pButton
+                          pRipple
+                          
+                          (click)="exportExcel()"
+                          class="p-button-success mr-2"
+                          pTooltip="XLS"
+                          tooltipPosition="bottom"
+                        ><i class="pi pi-file-excel"></i></button>
+                      </div>
+                    </ng-template>
+                  </p-toolbar>
+                  <!-- ! DataTable -->
+                  <p-table
+                  id="packages_promo_code"
+                    #dt
+                    [value]="packages_promo_code"
+                    [rows]="5"
+                    [columns]="selectedColumns"
+                    [globalFilterFields]="[
+                      'id',
+                      'name',
+                      'code',
+                      'valid_from',
+                      'valid_to',
+                      'usage_limit',
+                      'used_times',
+                      'active',
+                      'percent_discount',
+                      'generate_more',
+                      'number_of_promocodes',
+                    ]"
+                    [tableStyle]="{ 'min-width': '150rem' }"
+                    [(selection)]="selectedProviderBranches"
+                    [rowHover]="true"
+                    dataKey="id"
+                  >
+                    <ng-template pTemplate="caption">
+                      <div
+                        class="d-flex align-items-center flex-column flex-md-row justify-content-center justify-content-md-between"
+                      >
+                        <h4 class="m-0">Package promo code</h4>
+                
+                        <!-- ! display="chip" -->
+                        <p-multiSelect
+                          class="my-1 m-md-0"
+                          [options]="cols"
+                          [(ngModel)]="selectedColumns"
+                          optionLabel="header"
+                          selectedItemsLabel="{0} columns selected"
+                          [maxSelectedLabels]="0"
+                          [style]="{ 'max-width': '200px' }"
+                          placeholder="Choose columns"
+                        >
+                          <ng-template let-col pTemplate="item">
+                            <div>{{ col.header }}</div>
+                          </ng-template></p-multiSelect
+                        >
+                
+                        <span class="p-input-icon-left">
+                          <i class="pi pi-search"></i>
+                          <input
+                            [style]="{ 'max-width': '192px' }"
+                            pInputText
+                            type="text"
+                            (input)="dt.filterGlobal($any($event.target).value, 'contains')"
+                            placeholder="search"
+                          />
+                        </span>
+                      </div>
+                    </ng-template>
+                    <ng-template pTemplate="header" let-columns>
+                      <tr>
+                        <!-- <th style="width: 4rem">
+                          <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                        </th> -->
+                        <th
+                          *ngFor="let col of columns"
+                          [pSortableColumn]="col.field != 'image' ? col.field : false"
+                        >
+                          {{ col.header }}
+                          <p-sortIcon
+                            *ngIf="col.field != 'image'"
+                            [field]="col.field"
+                          ></p-sortIcon>
+                        </th>
+                
+                      </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-provider let-columns="columns">
+                      <tr>
+                        <!-- <td>
+                          <p-tableCheckbox [value]="provider"></p-tableCheckbox>
+                        </td>
+                        <td *ngIf="checkSelected(columns, serviceItemName)">
+                          {{ isEnglish ? provider.nameEn : provider.nameAr }}
+                        </td> -->
+                        <td *ngIf="checkSelected(columns, 'id')">
+                          <a routerLink="/newAdminPanel/package-promo-code/{{provider.id}}" ngbDropdownItem>
+                            {{ provider.id }}
+                          </a>
+                        </td>
+                        <td *ngIf="checkSelected(columns, 'name')">
+                          {{ provider.name }}
+                        </td>
+                        <td *ngIf="checkSelected(columns, 'code')">
+                          {{ provider.code }}
+                        </td>
+                        <td *ngIf="checkSelected(columns, 'valid_from')">
+                          {{ provider.valid_from | date:'short' }}
+                        </td>
+                        <td *ngIf="checkSelected(columns, 'valid_to')">
+                          {{ provider.valid_to | date:'short' }}
+                        </td>
+                        <td *ngIf="checkSelected(columns, 'usage_limit')">
+                          {{ provider.usage_limit }}
+                        </td>
+                        <td *ngIf="checkSelected(columns, 'used_times')">
+                          {{ provider.used_times }}
+                        </td>
+                        <td *ngIf="checkSelected(columns, 'active')">
+                          <i *ngIf="provider.active == true" class="pi pi-check" style="color: green;"></i>
+                          <i *ngIf="provider.active == false" class="pi pi-times" style="color: red;"></i>
+                        </td>
+                        <td *ngIf="checkSelected(columns, 'percent_discount')">
+                          {{ provider.percent_discount }}
+                        </td>
+                        <td *ngIf="checkSelected(columns, 'generate_more')">
+                          <i *ngIf="provider.generate_more == true" class="pi pi-check" style="color: green;"></i>
+                          <i *ngIf="provider.generate_more == false" class="pi pi-times" style="color: red;"></i>
+                        </td>
+                        <td *ngIf="checkSelected(columns, 'number_of_promocodes')">
+                          {{ provider.number_of_promocodes }}
+                        </td>
+                        <!-- <td>
+                          <a routerLink="/provider/provider-branch/{{provider.id}}" ngbDropdownItem>
+                            <span [data-feather]="'file-text'" [size]="16" [class]="'mr-50'"></span> 
+                            Details
+                          </a>
+                        </td> -->
+                    </ng-template>
+                  </p-table>           
+                  <p-paginator
+                  [rows]="5"
+                  [totalRecords]="count"
+                  currentPageReportTemplate="showing {first} to {last} of {{count}} entries"
+                    [showCurrentPageReport]="true"
+                  (onPageChange)="onPageChange($event)"
+                 ></p-paginator>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

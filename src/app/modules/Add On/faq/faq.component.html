@@ -1,0 +1,136 @@
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                  <p-toolbar styleClass="gap-2">
+                    <ng-template pTemplate="left">
+                      
+                    </ng-template>
+                
+                    <ng-template pTemplate="right">
+                      <div class="flex">
+                        <!-- ! PDF -->
+                        <button
+                          type="button"
+                          pButton
+                          pRipple
+                          
+                          (click)="exportToPdf()"
+                          class="mr-2"
+                          pTooltip="PDF"
+                          tooltipPosition="bottom"
+                        ><i class="pi pi-file-pdf"></i></button>
+                        <!-- ! Excel -->
+                        <button
+                          type="button"
+                          pButton
+                          pRipple
+                          
+                          (click)="exportExcel()"
+                          class="p-button-success mr-2"
+                          pTooltip="XLS"
+                          tooltipPosition="bottom"
+                        ><i class="pi pi-file-excel"></i></button>
+                      </div>
+                    </ng-template>
+                  </p-toolbar>
+                  <!-- ! DataTable -->
+                  <p-table
+                  id="faqs"
+                    #dt
+                    [value]="faqs"
+                    [rows]="5"
+                    [columns]="selectedColumns"
+                    [paginator]="true"
+                    [globalFilterFields]="[
+                      'id',
+                      'question',
+                      'answer',
+                    ]"
+                    [tableStyle]="{ 'min-width': '150rem' }"
+                    [(selection)]="selectedProviderBranches"
+                    [rowHover]="true"
+                    dataKey="id"
+                    currentPageReportTemplate="Showing {first} to
+                      {last} of {totalRecords} entries"
+                      [showCurrentPageReport]="true"
+                  >
+                    <ng-template pTemplate="caption">
+                      <div
+                        class="d-flex align-items-center flex-column flex-md-row justify-content-center justify-content-md-between"
+                      >
+                        <h4 class="m-0">FAQs</h4>
+                
+                        <!-- ! display="chip" -->
+                        <p-multiSelect
+                          class="my-1 m-md-0"
+                          [options]="cols"
+                          [(ngModel)]="selectedColumns"
+                          optionLabel="header"
+                          selectedItemsLabel="{0} columns selected"
+                          [maxSelectedLabels]="0"
+                          [style]="{ 'max-width': '200px' }"
+                          placeholder="Choose columns"
+                        >
+                          <ng-template let-col pTemplate="item">
+                            <div>{{ col.header }}</div>
+                          </ng-template></p-multiSelect
+                        >
+                
+                        <span class="p-input-icon-left">
+                          <i class="pi pi-search"></i>
+                          <input
+                            [style]="{ 'max-width': '192px' }"
+                            pInputText
+                            type="text"
+                            (input)="dt.filterGlobal($any($event.target).value, 'contains')"
+                            placeholder="search"
+                          />
+                        </span>
+                      </div>
+                    </ng-template>
+                    <ng-template pTemplate="header" let-columns>
+                      <tr>
+                        <!-- <th style="width: 4rem">
+                          <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                        </th> -->
+                        <th
+                          *ngFor="let col of columns"
+                          [pSortableColumn]="col.field != 'image' ? col.field : false"
+                        >
+                          {{ col.header }}
+                          <p-sortIcon
+                            *ngIf="col.field != 'image'"
+                            [field]="col.field"
+                          ></p-sortIcon>
+                        </th>
+                
+                      </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-data let-columns="columns">
+                      <tr>
+                        <!-- <td>
+                          <p-tableCheckbox [value]="data"></p-tableCheckbox>
+                        </td>
+                        <td *ngIf="checkSelected(columns, serviceItemName)">
+                          {{ isEnglish ? data.nameEn : data.nameAr }}
+                        </td> -->
+                        <td *ngIf="checkSelected(columns, 'id')">
+                          {{ data.id }}
+                        </td>
+                        <td *ngIf="checkSelected(columns, 'question')">
+                          {{ data.question }}
+                        </td>
+                        <td *ngIf="checkSelected(columns, 'answer')">
+                          {{ data.answer }}
+                        </td>
+                    </ng-template>
+                  </p-table> 
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

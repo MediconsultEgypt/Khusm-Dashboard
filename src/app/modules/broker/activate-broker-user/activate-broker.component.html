@@ -1,0 +1,135 @@
+<p-toast [breakpoints]="{ '425px': { width: '100%', right: '0', left: '0' } }"></p-toast>
+<div class="content">
+
+  <div class="container-fluid" *ngIf="screen == 'emailScreen'">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <!-- <div class="login-logo">
+          <a href="javascript:void(0)"><b>Admin</b>LTE</a>
+        </div> -->
+        <!-- /.login-logo -->
+        <div class="card card-primary m-5">
+          <div class="card-header">
+            <h3 class="card-title">Activate broker user</h3>
+          </div>
+          <div class="card-body login-card-body">
+      
+            <form [formGroup]="activateBrokerForm" (ngSubmit)="activateBroker()">
+              <!-- username -->
+              <div class="mb-3">
+                <div class="input-group">
+                  <input type="text" formControlName="username" class="form-control" placeholder="username">
+                  <div class="input-group-append">
+                    <div class="input-group-text">
+                      <span class="fas fa-user"></span>
+                    </div>
+                  </div>
+                </div>
+                <div *ngIf="activateBrokerForm.get('username').hasError('required') && activateBrokerForm.get('username').touched" class="text-danger">
+                  <small>
+                    Username is required.
+                  </small>
+                </div>
+                <div *ngIf="activateBrokerForm.get('username').hasError('minLength') && activateBrokerForm.get('username').touched" class="text-danger">
+                  <small>
+                    Username should be at least 2 characters.
+                  </small>
+                </div>
+                <div *ngIf="activateBrokerForm.get('username').hasError('pattern') && activateBrokerForm.get('username').touched" class="text-danger">
+                  <small>
+                    Username cannot contain numeric digits.
+                  </small>
+                </div>
+              </div>
+              <!-- password -->
+              <div class="mb-3">
+                <!-- <div class="input-group">
+                    <input type="password" formControlName="password" class="form-control" placeholder="password">
+                    <div class="input-group-append">
+                      <div class="input-group-text">
+                        <span class="fas fa-username"></span>
+                      </div>
+                    </div>
+                </div> -->
+                <p-password class="w-100" formControlName="password" [toggleMask]="true" [feedback]="false" placeholder="Password"></p-password>
+                <div *ngIf="activateBrokerForm.get('password').hasError('required') && activateBrokerForm.get('password').touched" class="text-danger">
+                  <small>
+                    Password is required.
+                  </small>
+                </div>
+                <div *ngIf="activateBrokerForm.get('password').hasError('minLength') && activateBrokerForm.get('password').touched" class="text-danger">
+                  <small>
+                    Password should be at least 6 characters or numbers.
+                  </small>
+                </div>
+              </div>
+                <!-- email -->
+                <div class="mb-3">
+                  <div class="input-group">
+                    <input type="text" formControlName="email" class="form-control" placeholder="email">
+                    <div class="input-group-append">
+                      <div class="input-group-text">
+                        <span class="fas fa-envelope"></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div *ngIf="activateBrokerForm.get('email').hasError('required') && activateBrokerForm.get('email').touched" class="text-danger">
+                    <small>
+                      Email is required.
+                    </small>
+                  </div>
+                  <div *ngIf="activateBrokerForm.get('email').hasError('pattern') && activateBrokerForm.get('email').touched" class="text-danger">
+                    <small>
+                      Email should be like example@example.com.
+                    </small>
+                  </div>
+                </div>
+                <!-- phone -->
+                <div class="mb-3">
+                  <div class="input-group">
+                    <input type="text" formControlName="phone" class="form-control" placeholder="phone">
+                    <div class="input-group-append">
+                      <div class="input-group-text">
+                        <span class="fas fa-phone"></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div *ngIf="activateBrokerForm.get('phone').hasError('required') && activateBrokerForm.get('phone').touched" class="text-danger">
+                    <small>
+                      Phone is required.
+                    </small>
+                  </div>
+                  <div *ngIf="activateBrokerForm.get('phone').hasError('invalidPhone') && activateBrokerForm.get('phone').touched" class="text-danger">
+                    <small>
+                      Phone number should only contain numeric digits.
+                    </small>
+                  </div>
+                  <div *ngIf="activateBrokerForm.get('phone').hasError('pattern') && activateBrokerForm.get('phone').touched" class="text-danger">
+                    <small>
+                      Phone number should only start with '01'.
+                    </small>
+                  </div>
+                  <div *ngIf="activateBrokerForm.get('phone').hasError('minlength') && activateBrokerForm.get('phone').touched" class="text-danger">
+                    <small>
+                      Phone number should be 11 digits long.
+                    </small>
+                  </div>
+                  <div *ngIf="activateBrokerForm.get('phone').hasError('maxlength') && activateBrokerForm.get('phone').touched" class="text-danger">
+                    <small>
+                      Phone number should be 11 digits long.
+                    </small>
+                  </div>
+                </div>
+              <div class="row">
+                <div class="col-12">
+                  <button type="submit" [disabled]="!activateBrokerForm.valid || emailProcessing" class="btn btn-primary btn-block">Activate</button>
+                </div>
+                <!-- /.col -->
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

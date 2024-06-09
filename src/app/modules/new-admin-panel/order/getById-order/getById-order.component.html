@@ -1,0 +1,186 @@
+<div _ngcontent-ng-c1568440195="" class="container-fluid">
+    <div _ngcontent-ng-c1568440195="" class="row mb-2">
+        <div _ngcontent-ng-c1568440195="" class="col-sm-6">
+            <h1 _ngcontent-ng-c1568440195=""> 
+                Order 
+            </h1>
+        </div>
+        <div _ngcontent-ng-c1568440195="" class="col-sm-6">
+            <ol _ngcontent-ng-c1568440195="" class="breadcrumb float-sm-right">
+                <li _ngcontent-ng-c1568440195="" class="breadcrumb-item">
+                    <a _ngcontent-ng-c1568440195="" routerLink="/newAdminPanel/order">Order</a>
+                </li>
+                <li _ngcontent-ng-c1568440195="" class="breadcrumb-item active">
+                    Details
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="card m-3">
+        <div class="card-body">
+          <div class="row">
+            <!-- id -->
+            <div class="col-6">
+                <i data-feather="user" class="mr-1"></i>
+                    <span class="card-text user-info-title font-weight-bold mb-0">ID</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ order.id }}</p>
+            </div>
+            <!-- total_amount_before_discount -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Total amount before discount</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ order.total_amount_before_discount | currency:'EGP' }}</p>
+            </div>
+            <!-- paid_amount -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Paid amount</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ order.paid_amount | currency:'EGP' }}</p>
+            </div>
+            <!-- discount_percentage -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Discount percentage</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ order.discount_percentage }}</p>
+            </div>
+            <!-- timestamp -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Timestamp</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ order.timestamp | date: 'short' }}</p>
+            </div>
+            <!-- is_paid -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Is paid</span>
+            </div>
+            <div class="col-6">
+                <i *ngIf="order.is_paid == true" class="pi pi-check" style="color: green;"></i>
+                <i *ngIf="order.is_paid == false" class="pi pi-times" style="color: red;"></i>            
+            </div>
+            <!-- transaction_id -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Transaction id</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ order.transaction_id }}</p>
+            </div>
+            <!-- order_code -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Order code</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ order.order_code }}</p>
+            </div>
+            <!-- khusm_discount -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Khusm discount</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ order.khusm_discount | currency:'EGP' }}</p>
+            </div>
+            <!-- refund_code -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Refund code</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ order.refund_code }}</p>
+            </div>
+            <!-- otp_secret -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Otp secret</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ order.otp_secret }}</p>
+            </div>
+            <!-- is_deleted -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Is deleted</span>
+            </div>
+            <div class="col-6">
+                <i *ngIf="order.is_deleted == true" class="pi pi-check" style="color: green;"></i>
+                <i *ngIf="order.is_deleted == false" class="pi pi-times" style="color: red;"></i>            
+            </div>
+            <!-- otp_status -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Otp status</span>
+            </div>
+            <div class="col-6">
+                <p-badge [value]="order.otp_status" severity="success" *ngIf="order.otp_status == 'otp_sent'"></p-badge>
+                <p-badge [value]="order.otp_status" severity="primary" *ngIf="order.otp_status == 'otp_not_sent_yet'"></p-badge>
+                <!-- <p-badge [value]="order.otp_status" severity="danger" *ngIf="order.status == 'failed'"></p-badge> -->            
+            </div>
+            <!-- user -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">User</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ order.user }}</p>
+            </div>
+            <!-- provider -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Provider</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ order.provider }}</p>
+            </div>
+            <!-- provider_branch -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Provider branch</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ order.provider_branch }}</p>
+            </div>
+            <!-- category -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text user-info-title font-weight-bold mb-0">Category</span>
+            </div>
+            <div class="col-6">
+                <!-- <p class="card-text mb-0">{{ order.provider_branch }}</p> -->
+                <p-scroller 
+                    [items]="category" 
+                    [itemSize]="50" 
+                    scrollHeight="200px" 
+                    styleClass="border-1 surface-border" 
+                    [style]="{'width': '200px', 'height': '200px'}">
+                    <ng-template pTemplate="item" let-item let-options="options">
+                        <div class="flex align-items-center p-2" [ngClass]="{ 'surface-ground': options.odd }" style="height: 50px;">
+                            {{ item }}
+                        </div>
+                    </ng-template>
+                </p-scroller>
+            </div>
+          </div>
+          <div class="row justify-content-end">
+            <div class="d-flex flex-wrap">
+                <a a routerLink="/newAdminPanel/order" class="btn btn-outline-secondary ml-1" rippleEffect>
+                  Back
+                </a>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>

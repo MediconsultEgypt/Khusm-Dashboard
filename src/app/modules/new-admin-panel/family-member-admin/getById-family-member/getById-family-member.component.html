@@ -1,0 +1,191 @@
+<div _ngcontent-ng-c1568440195="" class="container-fluid">
+    <div _ngcontent-ng-c1568440195="" class="row mb-2">
+        <div _ngcontent-ng-c1568440195="" class="col-sm-6">
+            <h1 _ngcontent-ng-c1568440195=""> 
+                Family member admin 
+            </h1>
+        </div>
+        <div _ngcontent-ng-c1568440195="" class="col-sm-6">
+            <ol _ngcontent-ng-c1568440195="" class="breadcrumb float-sm-right">
+                <li _ngcontent-ng-c1568440195="" class="breadcrumb-item">
+                    <a _ngcontent-ng-c1568440195="" routerLink="/newAdminPanel/family-member">Family member admin</a>
+                </li>
+                <li _ngcontent-ng-c1568440195="" class="breadcrumb-item active">
+                    Details
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="card m-3">
+        <div class="card-body">
+          <div class="row">
+            <!-- id -->
+            <div class="col-6">
+                <i data-feather="first_name" class="mr-1"></i>
+                    <span class="card-text first_name-info-title font-weight-bold mb-0">ID</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ member.id }}</p>
+            </div>
+            <!-- phone_number -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text first_name-info-title font-weight-bold mb-0">Phone number</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ member.phone_number }}</p>
+            </div>
+            <!-- family_member_status -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text first_name-info-title font-weight-bold mb-0">Family member status</span>
+            </div>
+            <div class="col-6">
+                <p-badge [value]="member.family_member_status" severity="success" *ngIf="member.family_member_status == 'completed'"></p-badge>
+                <p-badge [value]="member.family_member_status" severity="primary" *ngIf="member.family_member_status == 'pending'"></p-badge>
+                <p-badge [value]="member.family_member_status" severity="danger" *ngIf="member.family_member_status == 'not_paid'"></p-badge>
+            </div>
+            <!-- status -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text first_name-info-title font-weight-bold mb-0">Status</span>
+            </div>
+            <div class="col-6">
+                <p-badge [value]="member.status" severity="success" *ngIf="member.status == 'paid'"></p-badge>
+                <p-badge [value]="member.status" severity="primary" *ngIf="member.status == 'pending'"></p-badge>
+                <p-badge [value]="member.status" severity="danger" *ngIf="member.status == 'not_paid'"></p-badge>
+            </div>
+            <!-- payment_method -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text first_name-info-title font-weight-bold mb-0">Has member</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ member.payment_method }}</p>       
+            </div>
+            <!-- first_name -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text first_name-info-title font-weight-bold mb-0">First name</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ member.first_name }}</p>
+            </div>
+            <!-- last_name -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text first_name-info-title font-weight-bold mb-0">Last name</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ member.last_name }}</p>
+            </div>
+            <!-- email -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text first_name-info-title font-weight-bold mb-0">Email</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ member.email }}</p>
+            </div>
+            <!-- country -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text first_name-info-title font-weight-bold mb-0">Country</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ member.country }}</p>
+            </div>
+            <!-- city -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text first_name-info-title font-weight-bold mb-0">City</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ member.city }}</p>
+            </div>
+            <!-- currency -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text first_name-info-title font-weight-bold mb-0">Currency</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ member.currency }}</p>
+            </div>
+            <!-- phone -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text first_name-info-title font-weight-bold mb-0">Phone</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ member.phone }}</p>
+            </div>
+            <!-- address -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text first_name-info-title font-weight-bold mb-0">Address</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ member.address }}</p>
+            </div>
+            <!-- timestamp -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text first_name-info-title font-weight-bold mb-0">Timestamp</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ member.timestamp }}</p>
+            </div>
+            <!-- wallet_mobile_number -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text first_name-info-title font-weight-bold mb-0">Wallet mobile number</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ member.wallet_mobile_number }}</p>
+            </div>
+            <!-- is_wallet_payment -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text first_name-info-title font-weight-bold mb-0">Is wallet payment</span>
+            </div>
+            <div class="col-6">
+                <i *ngIf="member.is_wallet_payment == true" class="pi pi-check" style="color: green;"></i>
+                <i *ngIf="member.is_wallet_payment == false" class="pi pi-times" style="color: red;"></i>
+            </div>
+            <!-- parent_user -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text first_name-info-title font-weight-bold mb-0">Parent user</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ member.parent_user }}</p>
+            </div>
+            <!-- member_user -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text first_name-info-title font-weight-bold mb-0">Member user</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ member.member_user }}</p>
+            </div>
+            <!-- user_package_kid_related -->
+            <div class="col-6">
+                <i data-feather="edit-2" class="mr-1"></i>
+                <span class="card-text first_name-info-title font-weight-bold mb-0">User package kid related</span>
+            </div>
+            <div class="col-6">
+                <p class="card-text mb-0">{{ member.user_package_kid_related }}</p>
+            </div>
+          </div>
+          <div class="row justify-content-end">
+            <div class="d-flex flex-wrap">
+                <a a routerLink="/newAdminPanel/family-member" class="btn btn-outline-secondary ml-1" rippleEffect>
+                  Back
+                </a>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>

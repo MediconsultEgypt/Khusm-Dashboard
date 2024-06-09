@@ -1,0 +1,1023 @@
+<!-- Main Sidebar Container -->
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <!-- Brand Logo -->
+  <a href="/dashboard" class="brand-link">
+    <img
+      src="assets/images/logo-cropped.svg"
+      alt="Khusm Logo"
+      class="brand-image"
+      style="opacity: 0.8"
+    />
+    <h3 class="brand-text font-weight-light">Khusm</h3>
+  </a>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <!-- Sidebar user panel (optional) -->
+    <!-- <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+      <div class="image">
+        <img
+          src="assets/dist/img/user2-160x160.jpg"
+          class="img-circle elevation-2"
+          alt="User Image"
+        />
+      </div>
+      <div class="info">
+        <a  class="d-block">Alexander Pierce</a>
+      </div>
+    </div> -->
+
+    <!-- SidebarSearch Form -->
+    <div class="form-inline">
+      <div class="input-group" data-widget="sidebar-search">
+        <input
+          class="form-control form-control-sidebar"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+        />
+        <div class="input-group-append">
+          <button class="btn btn-sidebar">
+            <i class="fas fa-search fa-fw"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sidebar Menu -->
+    <nav class="mt-2">
+      <ul
+        class="nav nav-pills nav-sidebar flex-column"
+        data-widget="treeview"
+        role="menu"
+        data-accordion="false"
+      >
+        <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+        <ng-container *ngFor="let item of navItems">
+          <li class="nav-item" *ngIf="!isProvider">
+            <a
+              [routerLink]="[item.url]"
+              [routerLinkActive]="['active']"
+              class="nav-link"
+            >
+              <i [class]="item.iconComponent.name"></i>
+              <p>
+                {{ item.name }}
+              </p>
+            </a>
+          </li>
+        </ng-container>
+
+        <!-- users -->
+        <li class="nav-item" *ngIf="!isProvider">
+          <a  class="nav-link">
+            <i class="nav-icon fas fa-user"></i>
+            <p>
+              Users
+              <i class="fas fa-angle-left right"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a
+                [routerLink]="['/users/createUser']"
+                [routerLinkActive]="['active']"
+                class="nav-link"
+              >
+                <i class="far fa-circle nav-icon"></i>
+                <p>Create provider</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                [routerLink]="['/users/createClient']"
+                [routerLinkActive]="['active']"
+                class="nav-link"
+              >
+                <i class="far fa-circle nav-icon"></i>
+                <p>Create client</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                [routerLink]="['/users/userOrder']"
+                [routerLinkActive]="['active']"
+                class="nav-link"
+              >
+                <i class="far fa-circle nav-icon"></i>
+                <p>User order</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <!-- providers -->
+        <li class="nav-item" *ngIf="!isProvider">
+          <a  class="nav-link">
+            <i class="nav-icon fas fa-users"></i>
+            <p>
+              Providers
+              <i class="fas fa-angle-left right"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a
+                [routerLink]="['/provider/providers']"
+                [routerLinkActive]="['active']"
+                class="nav-link"
+              >
+                <i class="far fa-circle nav-icon"></i>
+                <p>providers</p>
+              </a>
+            </li>
+            <!-- <li class="nav-item">
+              <a
+                [routerLink]="['/provider/provCategories']"
+                [routerLinkActive]="['active']"
+                class="nav-link"
+              >
+                <i class="far fa-circle nav-icon"></i>
+                <p>Provider categories</p>
+              </a>
+            </li> -->
+            <!-- <li class="nav-item">
+              <a
+                [routerLink]="['/provider/productCategories']"
+                [routerLinkActive]="['active']"
+                class="nav-link"
+              >
+                <i class="far fa-circle nav-icon"></i>
+                <p>Product categories</p>
+              </a>
+            </li> -->
+            <li class="nav-item">
+              <a
+                [routerLink]="['/provider/providers-viewSet']"
+                [routerLinkActive]="['active']"
+                class="nav-link"
+              >
+                <i class="far fa-circle nav-icon"></i>
+                <p>Providers viewSet</p>
+              </a>
+            </li>
+            <!-- <li class="nav-item">
+              <a
+                [routerLink]="['/provider/provider-branch']"
+                [routerLinkActive]="['active']"
+                class="nav-link"
+              >
+                <i class="far fa-circle nav-icon"></i>
+                <p>Provider branch</p>
+              </a>
+            </li> -->
+          </ul>
+        </li>
+
+        <!-- Broker -->
+        <li class="nav-item" *ngIf="!isProvider">
+          <a  class="nav-link">
+            <i class="nav-icon fas fa-user"></i>
+            <p>
+              Broker
+              <i class="fas fa-angle-left right"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a
+                [routerLink]="['/broker/create-broker']"
+                [routerLinkActive]="['active']"
+                class="nav-link"
+              >
+                <i class="far fa-circle nav-icon"></i>
+                <p>Create broker</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                [routerLink]="['/broker/activateBroker']"
+                [routerLinkActive]="['active']"
+                class="nav-link"
+              >
+                <i class="far fa-circle nav-icon"></i>
+                <p>Activate broker</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <!-- orders -->
+        <li class="nav-item" *ngIf="isProvider">
+          <a  class="nav-link">
+            <i class="nav-icon fas fa-cart-plus"></i>
+            <p>
+              Orders
+              <i class="fas fa-angle-left right"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a
+                [routerLink]="['/order/provider-orders']"
+                [routerLinkActive]="['active']"
+                class="nav-link"
+              >
+                <i class="far fa-circle nav-icon"></i>
+                <p>Provider orders</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                [routerLink]="['/order/order-history']"
+                [routerLinkActive]="['active']"
+                class="nav-link"
+              >
+                <i class="far fa-circle nav-icon"></i>
+                <p>Order history</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <!-- new admin panel -->
+        <li class="nav-item" *ngIf="!isProvider">
+          <a  class="nav-link">
+            <i class="nav-icon fas fa-user-tie"></i>
+            <p>
+              New admin panel
+              <i class="fas fa-angle-left right"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a
+                [routerLink]="['/newAdminPanel/userMethod']"
+                [routerLinkActive]="['active']"
+                class="nav-link"
+              >
+                <i class="far fa-circle nav-icon"></i>
+                <p>User method</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                [routerLink]="['/newAdminPanel/brokerName']"
+                [routerLinkActive]="['active']"
+                class="nav-link"
+              >
+                <i class="far fa-circle nav-icon"></i>
+                <p>Broker name</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                [routerLink]="['/newAdminPanel/brokerDeal']"
+                [routerLinkActive]="['active']"
+                class="nav-link"
+              >
+                <i class="far fa-circle nav-icon"></i>
+                <p>Broker deal</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                [routerLink]="['/newAdminPanel/mostVisited']"
+                [routerLinkActive]="['active']"
+                class="nav-link"
+              >
+                <i class="far fa-circle nav-icon"></i>
+                <p>Most visited</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                [routerLink]="['/newAdminPanel/provider-category']"
+                [routerLinkActive]="['active']"
+                class="nav-link"
+              >
+                <i class="far fa-circle nav-icon"></i>
+                <p>Provider category</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                [routerLink]="['/newAdminPanel/provider-admin']"
+                [routerLinkActive]="['active']"
+                class="nav-link"
+              >
+                <i class="far fa-circle nav-icon"></i>
+                <p>Provider admin</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                [routerLink]="['/newAdminPanel/provider-product']"
+                [routerLinkActive]="['active']"
+                class="nav-link"
+              >
+                <i class="far fa-circle nav-icon"></i>
+                <p>Provider product</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                [routerLink]="['/newAdminPanel/prov-branch']"
+                [routerLinkActive]="['active']"
+                class="nav-link"
+              >
+                <i class="far fa-circle nav-icon"></i>
+                <p>Provider branch</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                [routerLink]="['/newAdminPanel/category']"
+                [routerLinkActive]="['active']"
+                class="nav-link"
+              >
+                <i class="far fa-circle nav-icon"></i>
+                <p>Category</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                [routerLink]="['/newAdminPanel/prov-rate']"
+                [routerLinkActive]="['active']"
+                class="nav-link"
+              >
+                <i class="far fa-circle nav-icon"></i>
+                <p>Provider Rate</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                [routerLink]="['/newAdminPanel/package']"
+                [routerLinkActive]="['active']"
+                class="nav-link"
+              >
+                <i class="far fa-circle nav-icon"></i>
+                <p>Package</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                [routerLink]="['/newAdminPanel/package-promo-code']"
+                [routerLinkActive]="['active']"
+                class="nav-link"
+              >
+                <i class="far fa-circle nav-icon"></i>
+                <p>Package promo code</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                [routerLink]="['/newAdminPanel/order-package']"
+                [routerLinkActive]="['active']"
+                class="nav-link"
+              >
+                <i class="far fa-circle nav-icon"></i>
+                <p>Order Package</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                [routerLink]="['/newAdminPanel/order']"
+                [routerLinkActive]="['active']"
+                class="nav-link"
+              >
+                <i class="far fa-circle nav-icon"></i>
+                <p>Order</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                [routerLink]="['/newAdminPanel/user-package']"
+                [routerLinkActive]="['active']"
+                class="nav-link"
+              >
+                <i class="far fa-circle nav-icon"></i>
+                <p>User package</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                [routerLink]="['/newAdminPanel/online-order']"
+                [routerLinkActive]="['active']"
+                class="nav-link"
+              >
+                <i class="far fa-circle nav-icon"></i>
+                <p>Online order</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                [routerLink]="['/newAdminPanel/family-member']"
+                [routerLinkActive]="['active']"
+                class="nav-link"
+              >
+                <i class="far fa-circle nav-icon"></i>
+                <p>Family member</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                [routerLink]="['/newAdminPanel/faq-admin']"
+                [routerLinkActive]="['active']"
+                class="nav-link"
+              >
+                <i class="far fa-circle nav-icon"></i>
+                <p>FAQ admin</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                [routerLink]="['/newAdminPanel/offer-banner']"
+                [routerLinkActive]="['active']"
+                class="nav-link"
+              >
+                <i class="far fa-circle nav-icon"></i>
+                <p>Offer Banner</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <!-- Add On -->
+        <li class="nav-item" *ngIf="!isProvider">
+          <a  class="nav-link">
+            <i class="nav-icon fas fa-user-tie"></i>
+            <p>
+              Add On
+              <i class="fas fa-angle-left right"></i>
+            </p>
+          </a>
+          
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a
+                [routerLink]="['/addon/slider']"
+                [routerLinkActive]="['active']"
+                class="nav-link"
+              >
+                <i class="far fa-circle nav-icon"></i>
+                <p>Slider</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                [routerLink]="['/addon/faq']"
+                [routerLinkActive]="['active']"
+                class="nav-link"
+              >
+                <i class="far fa-circle nav-icon"></i>
+                <p>FAQ</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                [routerLink]="['/addon/location']"
+                [routerLinkActive]="['active']"
+                class="nav-link"
+              >
+                <i class="far fa-circle nav-icon"></i>
+                <p>Location</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                [routerLink]="['/addon/offerBanner']"
+                [routerLinkActive]="['active']"
+                class="nav-link"
+              >
+                <i class="far fa-circle nav-icon"></i>
+                <p>Offer banner</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                [routerLink]="['/addon/notification']"
+                [routerLinkActive]="['active']"
+                class="nav-link"
+              >
+                <i class="far fa-circle nav-icon"></i>
+                <p>Notification</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <!-- <li class="nav-item">
+          <a
+            [routerLink]="['/widgets']"
+            [routerLinkActive]="['active']"
+            class="nav-link"
+          >
+            <i class="nav-icon fas fa-th"></i>
+            <p>
+              Widgets
+              <span class="right badge badge-danger">New</span>
+            </p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            [routerLink]="['/gallery']"
+            [routerLinkActive]="['active']"
+            class="nav-link"
+          >
+            <i class="nav-icon fas fa-th"></i>
+            <p>
+              Gallery
+              <span class="right badge badge-danger">New</span>
+            </p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a  class="nav-link">
+            <i class="nav-icon fas fa-tree"></i>
+            <p>
+              UI Elements
+              <i class="fas fa-angle-left right"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a
+                [routerLink]="['/modals-alerts']"
+                [routerLinkActive]="['active']"
+                class="nav-link"
+              >
+                <i class="far fa-circle nav-icon"></i>
+                <p>Modals & Alerts</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                [routerLink]="['/navs-tabs']"
+                [routerLinkActive]="['active']"
+                class="nav-link"
+              >
+                <i class="far fa-circle nav-icon"></i>
+                <p>Navbar & Tabs</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a  class="nav-link">
+            <i class="nav-icon fas fa-edit"></i>
+            <p>
+              Forms
+              <i class="fas fa-angle-left right"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a
+                [routerLink]="['/general-form-elements']"
+                [routerLinkActive]="['active']"
+                class="nav-link"
+              >
+                <i class="far fa-circle nav-icon"></i>
+                <p>General Elements</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                [routerLink]="['/advance-form-elements']"
+                [routerLinkActive]="['active']"
+                class="nav-link"
+              >
+                <i class="far fa-circle nav-icon"></i>
+                <p>Advanced Elements</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                [routerLink]="['/validation']"
+                [routerLinkActive]="['active']"
+                class="nav-link"
+              >
+                <i class="far fa-circle nav-icon"></i>
+                <p>Validation</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a  class="nav-link">
+            <i class="nav-icon fas fa-table"></i>
+            <p>
+              Tables
+              <i class="fas fa-angle-left right"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a
+                [routerLink]="['/simple-table']"
+                [routerLinkActive]="['active']"
+                class="nav-link"
+              >
+                <i class="far fa-circle nav-icon"></i>
+                <p>Simple Tables</p>
+              </a>
+            </li>
+          </ul>
+        </li> -->
+        <!-- <li class="nav-header">EXAMPLES</li>
+        <li class="nav-item">
+          <a  class="nav-link">
+            <i class="nav-icon far fa-envelope"></i>
+            <p>
+              Mailbox
+              <i class="fas fa-angle-left right"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a
+                [routerLink]="['/inbox']"
+                [routerLinkActive]="['active']"
+                class="nav-link"
+              >
+                <i class="far fa-circle nav-icon"></i>
+                <p>Inbox</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                [routerLink]="['/compose']"
+                [routerLinkActive]="['active']"
+                class="nav-link"
+              >
+                <i class="far fa-circle nav-icon"></i>
+                <p>Compose</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                [routerLink]="['/read']"
+                [routerLinkActive]="['active']"
+                class="nav-link"
+              >
+                <i class="far fa-circle nav-icon"></i>
+                <p>Read</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a  class="nav-link">
+            <i class="nav-icon fas fa-book"></i>
+            <p>
+              Pages
+              <i class="fas fa-angle-left right"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a
+                [routerLink]="['/invoice']"
+                [routerLinkActive]="['active']"
+                class="nav-link"
+              >
+                <i class="far fa-circle nav-icon"></i>
+                <p>Invoice</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                [routerLink]="['/profile']"
+                [routerLinkActive]="['active']"
+                class="nav-link"
+              >
+                <i class="far fa-circle nav-icon"></i>
+                <p>Profile</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                [routerLink]="['/ecommerce']"
+                [routerLinkActive]="['active']"
+                class="nav-link"
+              >
+                <i class="far fa-circle nav-icon"></i>
+                <p>E-commerce</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                [routerLink]="['/projects']"
+                [routerLinkActive]="['active']"
+                class="nav-link"
+              >
+                <i class="far fa-circle nav-icon"></i>
+                <p>Projects</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                [routerLink]="['/projects-add']"
+                [routerLinkActive]="['active']"
+                class="nav-link"
+              >
+                <i class="far fa-circle nav-icon"></i>
+                <p>Project Add</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                [routerLink]="['/project-edit']"
+                [routerLinkActive]="['active']"
+                class="nav-link"
+              >
+                <i class="far fa-circle nav-icon"></i>
+                <p>Project Edit</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                [routerLink]="['/project-detail']"
+                [routerLinkActive]="['active']"
+                class="nav-link"
+              >
+                <i class="far fa-circle nav-icon"></i>
+                <p>Project Detail</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                [routerLink]="['/contacts']"
+                [routerLinkActive]="['active']"
+                class="nav-link"
+              >
+                <i class="far fa-circle nav-icon"></i>
+                <p>Contacts</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                [routerLink]="['/faq']"
+                [routerLinkActive]="['active']"
+                class="nav-link"
+              >
+                <i class="far fa-circle nav-icon"></i>
+                <p>FAQ</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                [routerLink]="['/contact-us']"
+                [routerLinkActive]="['active']"
+                class="nav-link"
+              >
+                <i class="far fa-circle nav-icon"></i>
+                <p>Contact us</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a  class="nav-link">
+            <i class="nav-icon far fa-plus-square"></i>
+            <p>
+              Extras
+              <i class="fas fa-angle-left right"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a  class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>
+                  Login & Register v1
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a
+                    [routerLink]="['/login-v1']"
+                    [routerLinkActive]="['active']"
+                    class="nav-link"
+                  >
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Login v1</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a
+                    [routerLink]="['/login']"
+                    [routerLinkActive]="['active']"
+                    class="nav-link"
+                  >
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Login</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a
+                    [routerLink]="['/register-v1']"
+                    [routerLinkActive]="['active']"
+                    class="nav-link"
+                  >
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Register v1</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a
+                    [routerLink]="['/forgot-password']"
+                    [routerLinkActive]="['active']"
+                    class="nav-link"
+                  >
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Forgot Password v1</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a
+                    [routerLink]="['/recover-password']"
+                    [routerLinkActive]="['active']"
+                    class="nav-link"
+                  >
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Recover Password v1</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a  class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>
+                  Login & Register v2
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a
+                    [routerLink]="['/login-v2']"
+                    [routerLinkActive]="['active']"
+                    class="nav-link"
+                  >
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Login v2</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a
+                    [routerLink]="['/register-v2']"
+                    [routerLinkActive]="['active']"
+                    class="nav-link"
+                  >
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Register v2</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a
+                    [routerLink]="['/forgot-password-v2']"
+                    [routerLinkActive]="['active']"
+                    class="nav-link"
+                  >
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Forgot Password v2</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a
+                    [routerLink]="['/recover-password-v2']"
+                    [routerLinkActive]="['active']"
+                    class="nav-link"
+                  >
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Recover Password v2</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a
+                [routerLink]="['/lock-screen']"
+                [routerLinkActive]="['active']"
+                class="nav-link"
+              >
+                <i class="far fa-circle nav-icon"></i>
+                <p>Lockscreen</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                [routerLink]="['/legacy-user-menu']"
+                [routerLinkActive]="['active']"
+                class="nav-link"
+              >
+                <i class="far fa-circle nav-icon"></i>
+                <p>Legacy User Menu</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                [routerLink]="['/language-menu']"
+                [routerLinkActive]="['active']"
+                class="nav-link"
+              >
+                <i class="far fa-circle nav-icon"></i>
+                <p>Language Menu</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                [routerLink]="['/error-page-v1']"
+                [routerLinkActive]="['active']"
+                href="pages/examples/404.html"
+                class="nav-link"
+              >
+                <i class="far fa-circle nav-icon"></i>
+                <p>Error 404</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                [routerLink]="['/error-page-v2']"
+                [routerLinkActive]="['active']"
+                class="nav-link"
+              >
+                <i class="far fa-circle nav-icon"></i>
+                <p>Error 500</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                [routerLink]="['/pace']"
+                [routerLinkActive]="['active']"
+                class="nav-link"
+              >
+                <i class="far fa-circle nav-icon"></i>
+                <p>Pace</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                [routerLink]="['/blank-page']"
+                [routerLinkActive]="['active']"
+                class="nav-link"
+              >
+                <i class="far fa-circle nav-icon"></i>
+                <p>Blank Page</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                [routerLink]="['/starter-page']"
+                [routerLinkActive]="['active']"
+                class="nav-link"
+              >
+                <i class="far fa-circle nav-icon"></i>
+                <p>Starter Page</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a  class="nav-link">
+            <i class="nav-icon fas fa-search"></i>
+            <p>
+              Search
+              <i class="fas fa-angle-left right"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a
+                [routerLink]="['/simple-search']"
+                [routerLinkActive]="['active']"
+                class="nav-link"
+              >
+                <i class="far fa-circle nav-icon"></i>
+                <p>Simple Search</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                [routerLink]="['/enhanced-search']"
+                [routerLinkActive]="['active']"
+                class="nav-link"
+              >
+                <i class="far fa-circle nav-icon"></i>
+                <p>Enhanced</p>
+              </a>
+            </li>
+          </ul>
+        </li> -->
+      </ul>
+    </nav>
+    <!-- /.sidebar-menu -->
+  </div>
+  <!-- /.sidebar -->
+</aside>

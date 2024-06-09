@@ -1,0 +1,30 @@
+.text-center {
+    cursor: pointer;
+}
+
+:host ::ng-deep{
+    p-password .p-password{
+      width: 100%;
+    }
+    .p-password .p-inputtext{
+        width: 100%;
+    }
+    .p-inputtext:enabled:hover, p-password.ng-invalid.ng-dirty > .p-password > .p-inputtext {
+        border-color: #ced4da;
+    }
+    .p-password {
+        font-size: 14px;
+    }
+    .p-inputtext {
+        padding: 0.55rem 0.55rem;
+    }
+    // .login-box {
+    //     width: 60%;
+    // }
+}
+
+@media (min-width: 720px) {
+    .login-box {
+        width: 35%;
+    }
+}
