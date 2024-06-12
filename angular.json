@@ -16,6 +16,7 @@
             "outputPath": "dist/lte-angular",
             "index": "src/index.html",
             "main": "src/main.ts",
+            "baseHref": "/Khusm-Dashboard/",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "assets": [
