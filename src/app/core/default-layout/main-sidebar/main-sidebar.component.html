@@ -1,15 +1,18 @@
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
   <!-- Brand Logo -->
-  <a href="/dashboard" class="brand-link">
-    <img
-      src="assets/images/logo-cropped.svg"
-      alt="Khusm Logo"
-      class="brand-image"
-      style="opacity: 0.8"
-    />
-    <h3 class="brand-text font-weight-light">Khusm</h3>
-  </a>
+   <div class="d-flex">
+     <a href="/dashboard" class="brand-link">
+       <img
+         src="assets/images/logo-cropped.svg"
+         alt="Khusm Logo"
+         class="brand-image"
+         style="opacity: 0.8"
+       />
+       <h3 class="brand-text font-weight-light">Khusm</h3>
+     </a>
+     <a role="button" class="toggleBtn" (click)="toggleSidebar()"><i class="fa fa-times"></i></a>
+   </div>
 
   <!-- Sidebar -->
   <div class="sidebar">

@@ -65,6 +65,7 @@ export class LoginComponent {
     // if (this.authService.currentUserValue) {
     //   this.router.navigate(['/']);
     // }
+
   }
 
   // admin login
@@ -74,9 +75,12 @@ export class LoginComponent {
     adminData.username = this.AdminLoginForm.value.username;
     adminData.password = this.AdminLoginForm.value.password;
     this.authService.adminLogin(adminData.username, adminData.password).subscribe((res: any) => {
-      // this.messageService.add({ severity: 'success', detail: res.details });
-      // console.log(res)
-      this.router.navigate(['/']);
+      this.router.navigate(['/dashboard']);
+      window.onbeforeunload = function() { return false; };
+      // window.addEventListener('popstate', function (event) {
+      //   window.location.assign("/");
+      // });
+      // window.onbeforeunload = undefined;
     }, err=>{
       this.messageService.add({ severity: 'error', detail: err.error.details });
   })

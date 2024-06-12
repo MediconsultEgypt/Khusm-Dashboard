@@ -1,3 +1,38 @@
 .sidebar-dark-primary .nav-sidebar>.nav-item>.nav-link.active, .sidebar-light-primary .nav-sidebar>.nav-item>.nav-link.active {
     background-color: var(--primar-color);
 }
+
+.toggleBtn {
+    width: 2.5rem;
+    color: #ffff;
+    padding-top: 1.5rem;
+    display: none;
+}
+
+
+  /* sidebar.component.css */
+.sidebar-open {
+    transform: translateX(0);
+    /* Add any other styles for the open state */
+  }
+  
+  .sidebar-closed {
+    transform: translateX(-100%);
+    /* Add any other styles for the closed state */
+  }
+  
+  /* Add media queries for responsive design if needed */
+  @media (max-width: 768px) {
+    .sidebar-open {
+      transform: translateX(0);
+    }
+
+    .toggleBtn {
+        display: flex;
+    }
+    
+    .sidebar-closed {
+      transform: translateX(-100%);
+    }
+  }
+  
