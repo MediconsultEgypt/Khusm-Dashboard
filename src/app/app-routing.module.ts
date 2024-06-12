@@ -10,11 +10,11 @@ import { NotAuthorizedComponent } from './modules/auth/not-authorized/not-author
 // import { Role } from './modules/auth/models/user.model';
 
 const routes: Routes = [
-  // {
-  //   path: '',
-  //   redirectTo: 'login',
-  //   pathMatch: 'full'
-  // },
+  {
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full'
+  },
   {
     path: '',
     component: DefaultLayoutComponent,
