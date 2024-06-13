@@ -23,7 +23,7 @@ export class MainHeaderComponent implements OnInit {
 
   logout() {
     this._AuthService.logout();
-    this.router.navigate(['/login']);
+    this.router.navigate(['/login'], { replaceUrl: true });
   }
 
 }
