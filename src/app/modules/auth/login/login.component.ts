@@ -76,7 +76,7 @@ export class LoginComponent {
     adminData.password = this.AdminLoginForm.value.password;
     this.authService.adminLogin(adminData.username, adminData.password).subscribe((res: any) => {
       this.router.navigate(['/']);
-      window.onbeforeunload = function() { return false; };
+      // window.onbeforeunload = function() { return false; };
       // window.addEventListener('popstate', function (event) {
       //   window.location.assign("/");
       // });
