@@ -74,14 +74,14 @@
 
         <!-- users -->
         <li class="nav-item" *ngIf="!isProvider">
-          <a href="javascript:void(0);" class="nav-link" (click)="toggleMenu($event)">
+          <a href="#collapedusers" class="nav-link">
             <i class="nav-icon fas fa-user"></i>
             <p>
               Users
               <i class="fas fa-angle-left right"></i>
             </p>
           </a>
-          <ul class="nav nav-treeview" [class.show]="isMenuOpen">
+          <ul class="nav nav-treeview" id="collapedusers">
             <li class="nav-item">
               <a
                 [routerLink]="['/users/createUser']"
