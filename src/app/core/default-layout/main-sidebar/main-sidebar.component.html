@@ -1,5 +1,5 @@
 <!-- Main Sidebar Container -->
-<aside class="main-sidebar sidebar-dark-primary elevation-4">
+<aside class="main-sidebar sidebar-dark-primary elevation-4" style="height: auto;">
   <!-- Brand Logo -->
    <div class="d-flex">
      <a href="/dashboard" class="brand-link">
@@ -74,14 +74,14 @@
 
         <!-- users -->
         <li class="nav-item" *ngIf="!isProvider">
-          <a href="javascript:void(0);" class="nav-link">
+          <a href="javascript:void(0);" class="nav-link" (click)="toggleMenu($event)">
             <i class="nav-icon fas fa-user"></i>
             <p>
               Users
               <i class="fas fa-angle-left right"></i>
             </p>
           </a>
-          <ul class="nav nav-treeview">
+          <ul class="nav nav-treeview" [class.show]="isMenuOpen">
             <li class="nav-item">
               <a
                 [routerLink]="['/users/createUser']"

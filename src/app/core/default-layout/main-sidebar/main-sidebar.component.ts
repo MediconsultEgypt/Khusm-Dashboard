@@ -17,6 +17,8 @@ export class MainSidebarComponent implements OnInit {
 
   isSidebarCollapsed: boolean = false;
 
+  isMenuOpen = false;
+
   constructor(private router: Router) { }
 
   ngOnInit(): void {
@@ -46,7 +48,7 @@ export class MainSidebarComponent implements OnInit {
 
 
   toggleSidebar() {
-    console.log('doniaaa');
+    // console.log('doniaaa');
     // this.isSidebarCollapsed = !this.isSidebarCollapsed;
     const body = document.body;
   if (body.classList.contains('sidebar-open')) {
@@ -56,6 +58,11 @@ export class MainSidebarComponent implements OnInit {
   } else {
     body.classList.add('sidebar-open');
   }
+  }
+
+  toggleMenu(event: Event): void {
+    event.preventDefault();
+    this.isMenuOpen = !this.isMenuOpen;
   }
 }
 
