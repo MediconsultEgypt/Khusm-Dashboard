@@ -34,5 +34,13 @@
     .sidebar-closed {
       transform: translateX(-100%);
     }
+
+    .nav-treeview{
+      display: none;
+    }
+
+    .nav-treeview .show{
+      display: block;
+    }
   }
   

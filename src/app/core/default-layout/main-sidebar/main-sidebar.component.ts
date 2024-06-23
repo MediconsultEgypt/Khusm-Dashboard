@@ -60,8 +60,8 @@ export class MainSidebarComponent implements OnInit {
   }
   }
 
-  toggleMenu(event: Event): void {
-    event.preventDefault();
+  toggleMenu(): void {
+    // event.preventDefault();
     this.isMenuOpen = !this.isMenuOpen;
   }
 }
